@@ -10,8 +10,10 @@ import {
   FaApple,
   FaLinux,
   FaAndroid,
+  FaGamepad
 } from "react-icons/fa";
 import type { IconType } from "react-icons";
+import { SiSega } from "react-icons/si";
 
 interface Props {
   platforms: Platform[];
@@ -27,7 +29,9 @@ const PlatformIconList = ({ platforms }: Props) => {
     linux: FaLinux,
     ios: MdPhoneIphone,
     android: FaAndroid,
-    web: BsGlobe
+    web: BsGlobe,
+    sega: SiSega,
+    "neo-geo": FaGamepad
   }
 
   return (
