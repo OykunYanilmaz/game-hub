@@ -20,7 +20,8 @@ const usePlatforms = () => useQuery({
     // queryFn: () => apiClient.get<FetchResponse<Platform>>('/platforms/lists/parents').then(res => res.data),
     queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 1000,
-    initialData: { count: platforms.length, next: "0", results: platforms }
+    // initialData: { count: platforms.length, next: null, results: platforms }
+    initialData: platforms
 })
 
 export default usePlatforms;
