@@ -2,16 +2,14 @@
 
 import { useQuery } from "@tanstack/react-query";
 import platforms from "../data/platforms";
-import type { Platform } from "./useGames";
 import apiClient from "@/services/api-client";
 import type { FetchResponse } from "@/services/api-client";
 
-// NOTE: We will see the behaviour after commenting this block.
-// interface Platform {
-//     id: number;
-//     name: string;
-//     slug: string;
-// }
+export interface Platform {
+    id: number;
+    name: string;
+    slug: string;
+}
 
 // const usePlatforms = () => useData<Platform>('/platforms/lists/parents');
 // const usePlatforms = () => ({ data: platforms, error: null, isLoading: false });
