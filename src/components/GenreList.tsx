@@ -11,10 +11,13 @@ import {
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+const GenreList = ({
+  selectedGenreId,
+  onSelectGenre,
+}: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
@@ -25,7 +28,10 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
 
   return (
     <>
-      <Heading fontSize="2xl" marginBottom={3}> Genres</Heading>
+      <Heading fontSize="2xl" marginBottom={3}>
+        {" "}
+        Genres
+      </Heading>
       <List.Root listStyleType="none">
         {data?.results.map((genre) => (
           <List.Item key={genre.id} paddingY="5px">
@@ -41,8 +47,8 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
                 flex={1}
                 justifyContent="flex-start"
                 _hover={{ color: "green", textDecoration: "underline" }}
-                color={genre.id === selectedGenre?.id ? "green" : "#e4e4e7"}
-                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                color={genre.id === selectedGenreId ? "green" : "#e4e4e7"}
+                fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
                 onClick={() => onSelectGenre(genre)}
                 variant="plain"
                 fontSize="lg"
