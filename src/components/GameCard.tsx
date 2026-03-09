@@ -1,4 +1,4 @@
-import type { Game } from "@/hooks/useGames";
+import type { Game } from "@/entities/Game";
 import { Card, Heading, HStack, Image } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
@@ -23,7 +23,7 @@ const GameCard = ({ game }: Props) => {
           <CriticScore score={game.metacritic}></CriticScore>
         </HStack>
         <Heading fontSize="2xl">
-          <Link to={'/games/' + game.slug}>{game.name}</Link>
+          <Link to={"/games/" + game.slug}>{game.name}</Link>
           <Emoji rating={game.rating_top}></Emoji>
         </Heading>
       </Card.Body>

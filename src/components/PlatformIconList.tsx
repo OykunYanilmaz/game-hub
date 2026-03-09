@@ -1,4 +1,4 @@
-import type { Platform } from "@/hooks/usePlatforms";
+import type { Platform } from "@/entities/Platform";
 import { HStack, Icon } from "@chakra-ui/react";
 import { MdPhoneIphone } from "react-icons/md";
 import { BsNintendoSwitch } from "react-icons/bs";
@@ -10,7 +10,7 @@ import {
   FaApple,
   FaLinux,
   FaAndroid,
-  FaGamepad
+  FaGamepad,
 } from "react-icons/fa";
 import type { IconType } from "react-icons";
 import { SiSega } from "react-icons/si";
@@ -31,14 +31,18 @@ const PlatformIconList = ({ platforms }: Props) => {
     android: FaAndroid,
     web: BsGlobe,
     sega: SiSega,
-    "neo-geo": FaGamepad
-  }
+    "neo-geo": FaGamepad,
+  };
 
   return (
     // theme.space value probably 4px. 1 = 4px
-    <HStack marginY={1}> 
+    <HStack marginY={1}>
       {platforms.map((platform) => (
-        <Icon key={platform.id ?? platform.slug} as={iconMap[platform.slug]} color="gray.500"></Icon>
+        <Icon
+          key={platform.id ?? platform.slug}
+          as={iconMap[platform.slug]}
+          color="gray.500"
+        ></Icon>
       ))}
     </HStack>
   );
